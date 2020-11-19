@@ -1,0 +1,476 @@
+<html>
+    <head>
+    <style type="text/css">
+		body {
+			margin: 0;
+			padding: 1em;
+		}
+
+		.container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: auto;
+			grid-gap: 10px;<!--照片、按鈕間距-->
+		}
+
+		.item-a {
+			grid-column: 2 / 3;
+			grid-row: 1 / 2;
+			justify-self: center;
+			width: auto;
+			height: auto;
+		}
+
+		.item-b {
+			grid-column: 2 / 3;
+			grid-row: 2 / 3;
+			justify-self: center;
+			text-align: center;
+			font: 12px Courier, sans-serif;
+
+		}
+
+		.item-c {
+			grid-column: 2 / 3;
+			grid-row: 3 / 4;
+			justify-self: center;
+
+		}
+		.item-d {
+			grid-column: 2 / 3;			
+			justify-self: center;
+			<!--new .item-d-->
+		}
+
+		button {
+			background-color: #f0dfaf;
+			border: none;
+			padding: 0.7em;
+			color: gray;
+			display: block;
+			font: 12px Courier, sans-serif;
+			-webkit-transition: 0.1s;
+
+		}
+
+		button:hover {
+			background-color: pink;   
+			-webkit-transition: 0.1s;
+
+		}
+
+		#face {
+			height:35vw;
+			-webkit-transition: 0.1s;
+		}
+
+		{
+			card:"",
+				desc:"",
+				src:""
+		}
+		// CSS Content
+    </style>
+	</head>
+	<body>
+<html>
+    
+<div class="container">
+	<div class="item-a">  
+		<img id="face" sytle="max-width:350px" src="https://i.imgur.com/EuPmp4C.jpg">
+	</div>
+	  
+	<div id="card" class="item-b">
+	<p></p>
+	</div>
+
+	<div class="item-c">	  
+		<button type="button" id="button" class="button" onclick="buttonClick()">&#9825;	
+	Romance Angel Oracle Card &#9825;	</button>
+	</div>  
+	<div class="item-d"><!--edit-->
+	  	<button class="button" onclick=location.reload();>
+		★－:+reset+:－★ 
+		</button>
+	</div>  
+</div>
+    <script language="JavaScript"  type="text/javascript">
+// An array of cards
+
+var cards = 
+[
+	{
+		card: "Attraction",
+			desc: "You attract romantic love by enjoying this moment fully.",
+			src: "https://i.imgur.com/9vizaIv.jpg"
+	},
+	{
+		card: "Calling in Your Soul Mate",
+			desc: "Your prayers, affirmations, and visualizations help bring you together.",
+			src: "https://imgur.com/OPrv6MY.jpg"
+	},
+	{
+		card: "Chemistry",
+			desc: "There's a strong magnetic attraction here.",
+			src: "https://imgur.com/k2SmTcF.jpg"
+	},
+	{
+		card: "Children",
+			desc: "Your love life is being affected by children.",
+			src: "https://imgur.com/eCw6tw9.jpg"
+	},
+	{
+		card: "Codependency",
+			desc: "Addictions are affecting your romantic life.",
+			src: "https://imgur.com/R681o9b.jpg"
+	},
+	{
+		card: "Deception",
+			desc: "Someone is wearing a false-self mask in this relationship.",
+			src: "https://imgur.com/M83ancC.jpg"
+	},
+	{
+		card: "Engagement",
+			desc: "Your love life is ascending to a higher level of commitment.",
+			src: "https://imgur.com/Ybmbpb2.jpg"
+	},
+	{
+		card: "Express Your Love",
+			desc: "Go ahead make that romantic gesture!",
+			src: "https://imgur.com/JSeBig9.jpg"
+	},
+	{
+		card: "Finances and Career",
+			desc: "Financial issues are a factor in your love life right now.",
+			src: "https://imgur.com/bNAaUjA.jpg"
+	},
+	{
+		card: "Flirt",
+			desc: "Extend your light-hearted energy to others.",
+			src: "https://imgur.com/TfODJCC.jpg"
+	},
+	{
+		card: "Forgiving and Learning",
+			desc: "As you release and heal the past, you experience more love in your present moments.",
+			src: "https://imgur.com/mri0liO.jpg"
+	},
+	{
+		card: "Free Yourself",
+			desc: "It's time to take back control of your life.",
+			src: "https://imgur.com/6lDuB7G.jpg"
+	},
+	{
+		card: "Getting to Know Each Other",
+			desc: "As you reveal your innermost selves to each other, your bond deepens.",
+			src: "https://imgur.com/shu3CO3.jpg"
+	},
+	{
+		card: "Give Your Relationship a Chance",
+			desc: "Work on your partnership.",
+			src: "https://imgur.com/9RQ9c7L.jpg"
+	},
+	{
+		card: "Healing Family Issues",
+			desc: "Your love life benefits as you forgive your parents.",
+			src: "https://imgur.com/dg5u0QQ.jpg"
+	},
+	{
+		card: "Heart-to-Heart Conversations",
+			desc: "Honestly discuss your feelings with each other.",
+			src: "https://imgur.com/jMqkHuG.jpg"
+	},
+	{
+		card: "Honeymoon",
+			desc: "Enjoy the bliss of holiday time together.",
+			src: "https://imgur.com/548CCcE.jpg"
+	},
+	{
+		card: "It Is Safe for You to Love",
+			desc: "Open your heart to give and receive the highest energy of all.",
+			src: "https://imgur.com/HZfUwS9.jpg"
+	},
+	{
+		card: "Keep an Open Mind",
+			desc: "Your soul mate may differ from your usual type of expectations.",
+			src: "https://imgur.com/5KxFLhM.jpg"
+	},
+	{
+		card: "Let Go of Control Issues",
+			desc: "Allow this situation to unfold naturally.",
+			src: "https://imgur.com/Kd0Ie7m.jpg"
+	},
+	{
+		card: "Let Your Friends Help You",
+			desc: "Ask for and accept support from others.",
+			src: "https://imgur.com/o5q5BCo.jpg"
+	},
+	{
+		card: "Love Yourself First",
+			desc: "Your self-respect makes you more romantically attractive.",
+			src: "https://imgur.com/S8SPM0h.jpg"
+	},
+	{
+		card: "Make the Effort",
+			desc: "Great love is worth taking the steps you're guided to take.",
+			src: "https://imgur.com/VyGakeJ.jpg"
+	},
+	{
+		card: "New Love",
+			desc: "A new person has stirred your romantic feelings.",
+			src: "https://imgur.com/aQ5eY9j.jpg"
+	},
+	{
+		card: "Passion",
+			desc: "Allow your heart and soul to sing with joy.",
+			src: "https://imgur.com/RNUmJjk.jpg"
+	},
+	{
+		card: "Past-Life Relationship",
+			desc: "You have known each other before.",
+			src: "https://imgur.com/h0sl8Gg.jpg"
+	},
+	{
+		card: "Pay Attention to the Red Flags",
+			desc: "The signs are cautioning you.",
+			src: "https://imgur.com/rvphCRM.jpg"
+	},
+	{
+		card: "Playfulness",
+			desc: "To recapture romance, allow your inner youthful spirit of fun to shine!",
+			src: "https://imgur.com/IkGfio5.jpg"
+	},
+	{
+		card: "Reconciliation",
+			desc: "Someone from your past is returning to your life.",
+			src: "https://imgur.com/K7nT7Sj.jpg"
+	},
+	{
+		card: "Release Your Ex",
+			desc: "The time has come to clear your energy.",
+			src: "https://imgur.com/bY7BOz1.jpg"
+	},
+	{
+		card: "Religious Factors",
+			desc: "Your love life is influenced by your religious upbringing and spiritual path.",
+			src: "https://imgur.com/zVK88xn.jpg"
+	},
+	{
+		card: "Retreat",
+			desc: "It’s time to disconnect from the world.",
+			src: "https://imgur.com/IIItBuY.jpg"
+	},
+	{
+		card: "Romantic Feelings",
+			desc: "Your feelings are real and worth exploring.",
+			src: "https://imgur.com/QxQkbjX.jpg"
+	},
+	{
+		card: "Separation",
+			desc: "Time apart from your partner is on the horizon.",
+			src: "https://imgur.com/5fhvzK0.jpg"
+	},
+	{
+		card: "Soul Mate",
+			desc: "Yes this is your soulmate.",
+			src: "https://imgur.com/JfYf4YG.jpg"
+	},
+	{
+		card: "Stay Optimistic about Your Love Life",
+			desc: "Positive thinking and faith will bring you romance.",
+			src: "https://i.imgur.com/f11L46e.jpg"
+	},
+	{
+		card: "This Could Be the One",
+			desc: "You’ve already met the romantic partner you seek.",
+			src: "https://imgur.com/8QFDIks.jpg"
+	},
+	{
+		card: "True Love",
+			desc: "This is the romance of a life time!",
+			src: "https://imgur.com/Hda5RGx.jpg"
+	},
+	{
+		card: "Trust",
+			desc: "This situation is calling for you to have faith.",
+			src: "https://imgur.com/SqlcvyH.jpg"
+	},
+	{
+		card: "Unrequited Love",
+			desc: "There’s not enough attraction or chemistry to keep this relationship going.",
+			src: "https://imgur.com/cBYzH1V.jpg"
+	},
+	{
+		card: "Very Soon",
+			desc: "Clearly decide what you want so that it comes to you now.",
+			src: "https://imgur.com/FLUA98z.jpg"
+	},
+	{
+		card: "Wedding",
+			desc: "This situation involves marriage.",
+			src: "https://imgur.com/4Op2Z62.jpg"
+	},
+	{
+		card: "Worth Waiting For",
+			desc: "Divine timing is at work in your love life.",
+			src: "https://imgur.com/YQvhpNQ.jpg"
+	},
+	{
+		card: "You Deserve Love",
+			desc: "You are lovable!",
+			src: "https://imgur.com/Svohtq0.jpg"
+	}
+];
+
+// The button function
+
+function buttonClick() {
+  
+// Create a random number generator
+
+var cardsNumber = cards.length;
+var randomNumber = Math.random();
+var chooseRange = (randomNumber * cardsNumber) + 0;
+var numberGen = Math.floor(chooseRange);
+
+// Change HTML
+  
+  document.getElementById('card').innerHTML = "Your card is " + cards[numberGen].card + "." + "<br> This card is about " + cards[numberGen].desc;
+  document.getElementById('face').src = cards[numberGen].src;
+  document.getElementById('button').visibility = 'hidden';   
+  document.getElementById('button').innerHTML = "Get another card?";
+
+}
+        </script>   
+<style>
+footer {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	background-color: brown;
+	color: white;
+	text-align: center;
+}
+</style>
+
+<style>
+footer {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	background-color: #f0dfaf; <!--橘-->
+	color: #4f4f4f; <!--灰-->
+	text-align: center;
+    font-size: 11px
+}
+</style>
+
+<footer>
+        <p style="font-family: Courier New">
+        
+	&Copy; GD. 2020 </p>
+    
+    
+    
+</footer>
+	<script language="JavaScript">
+  /**
+    * Disable right-click of mouse, F12 key, and save key combinations on page
+    * By Arthur Gareginyan (https://www.arthurgareginyan.com)
+    * For full source code, visit https://mycyberuniverse.com
+    */
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    //document.onkeydown = function(e) {
+      // "I" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      // "J" key
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      // "S" key + macOS
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      // "U" key
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      // "F12" key
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+</script>
+    </body> 
+    
+</html>
+
+<!--
+https://i.imgur.com/EuPmp4C.jpg
+
+https://imgur.com/9vizaIv.jpg
+https://imgur.com/OPrv6MY.jpg
+https://imgur.com/k2SmTcF.jpg
+https://imgur.com/eCw6tw9.jpg
+https://imgur.com/R681o9b.jpg
+https://imgur.com/M83ancC.jpg
+https://imgur.com/Ybmbpb2.jpg
+https://imgur.com/JSeBig9.jpg
+https://imgur.com/bNAaUjA.jpg
+https://imgur.com/TfODJCC.jpg
+
+https://imgur.com/mri0liO.jpg
+https://imgur.com/6lDuB7G.jpg
+https://imgur.com/shu3CO3.jpg
+https://imgur.com/9RQ9c7L.jpg
+https://imgur.com/dg5u0QQ.jpg
+https://imgur.com/jMqkHuG.jpg
+https://imgur.com/548CCcE.jpg
+https://imgur.com/HZfUwS9.jpg
+https://imgur.com/5KxFLhM.jpg
+https://imgur.com/Kd0Ie7m.jpg
+
+https://imgur.com/o5q5BCo.jpg
+https://imgur.com/S8SPM0h.jpg
+https://imgur.com/VyGakeJ.jpg
+https://imgur.com/aQ5eY9j.jpg
+https://imgur.com/RNUmJjk.jpg
+https://imgur.com/h0sl8Gg.jpg
+https://imgur.com/rvphCRM.jpg
+https://imgur.com/IkGfio5.jpg
+https://imgur.com/K7nT7Sj.jpg
+https://imgur.com/bY7BOz1.jpg
+
+https://imgur.com/zVK88xn.jpg
+https://imgur.com/IIItBuY.jpg
+https://imgur.com/QxQkbjX.jpg
+https://imgur.com/5fhvzK0.jpg
+https://imgur.com/JfYf4YG.jpg
+https://imgur.com/f11L46e.jpg
+https://imgur.com/8QFDIks.jpg
+https://imgur.com/Hda5RGx.jpg
+https://imgur.com/SqlcvyH.jpg
+https://imgur.com/cBYzH1V.jpg
+
+https://imgur.com/FLUA98z.jpg
+https://imgur.com/4Op2Z62.jpg
+https://imgur.com/YQvhpNQ.jpg
+https://imgur.com/Svohtq0.jpg
+-->
